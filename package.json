@@ -1,0 +1,45 @@
+{
+  "name": "react-boilerplate",
+  "version": "0.1.0",
+  "description": "Boilerplate to develop Webapps based on React",
+  "scripts": {
+    "start": "BABEL_ENV=dev webpack-dev-server --env.dev",
+    "pretest": "npm run lint && npm run typecheck",
+    "lint": "eslint src",
+    "typecheck": "flow",
+    "test": "BABEL_ENV=test mocha --compilers js:babel-register --require test/setup.js -w test/**/*.spec.js",
+    "build": "BABEL_ENV=dev webpack --progress -p --env.prod && cp src/index.html dist"
+  },
+  "author": "Ariel Schiavoni",
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.11.4",
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-class-properties": "^6.10.2",
+    "babel-plugin-transform-flow-strip-types": "^6.8.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-es2015-webpack": "^6.4.1",
+    "babel-preset-react": "^6.11.1",
+    "babel-register": "^6.9.0",
+    "chai": "^3.5.0",
+    "enzyme": "^2.4.1",
+    "eslint": "^3.1.1",
+    "eslint-plugin-import": "^1.11.1",
+    "eslint-plugin-react": "^5.2.2",
+    "flow-bin": "^0.29.0",
+    "jsdom": "^9.4.1",
+    "mocha": "^2.5.3",
+    "react-addons-test-utils": "^15.2.1",
+    "sinon": "^1.17.4",
+    "webpack": "^2.1.0-beta.2",
+    "webpack-dev-server": "^2.1.0-beta.0"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.9.2",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1"
+  }
+}
