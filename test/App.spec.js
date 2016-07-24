@@ -2,32 +2,24 @@
 
 import React from 'react';
 import { expect } from 'chai';
-import { spy } from 'sinon';
-import { shallow, mount } from 'enzyme';
-import App from '../src/App';
+import { shallow } from 'enzyme';
+import App from '../src/components/App';
 
 describe("<App />", () => {
   it('should have a header', () => {
-    const wrapper = shallow(<App />);
+    const wrapper = shallow(<App caca="aaaa"/>);
     expect(wrapper.find('h1')).to.have.length(1);
   });
 
-  it('should have a "name" prop that defaults to "World"', () => {
-    const wrapper = mount(<App />);
-    expect(wrapper.props().name).to.equal('World');
+  it('should show a "Hello World!" greeting by default', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('h1').text()).to.equal('Hello World!');
   });
 
-  it('should allow to change the name', () => {
-    const name = 'this is a test';
-    const wrapper = mount(<App name={name}/>);
-    expect(wrapper.props().name).to.equal(name);
-  });
+  it('should allow to change the greeting', () => {
+    const greeting = 'this is a test';
+    const wrapper = shallow(<App greeting={greeting} />);
 
-  it('calls render', () => {
-    spy(App.prototype, 'render');
-
-    mount(<App />);
-    expect(App.prototype.render).to.have.property('callCount', 1);
-    App.prototype.render.restore();
+    expect(wrapper.find('h1').text()).to.equal(greeting);
   });
 });

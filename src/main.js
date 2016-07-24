@@ -1,7 +1,21 @@
 /* @flow */
 
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore';
+import App from './components/App';
+import type { State } from './reducers';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const initialState: State = {
+  counter: 0
+};
+
+const store = configureStore(initialState);
+
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);

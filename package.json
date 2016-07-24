@@ -7,7 +7,7 @@
     "pretest": "npm run lint && npm run typecheck",
     "lint": "eslint src",
     "typecheck": "flow",
-    "test": "BABEL_ENV=test mocha --compilers js:babel-register --require test/setup.js -w test/**/*.spec.js",
+    "test": "BABEL_ENV=test mocha --compilers js:babel-register --require test/setup.js test/**/*.spec.js",
     "build": "BABEL_ENV=dev webpack --progress -p --env.prod && cp src/index.html dist"
   },
   "author": "Ariel Schiavoni",
@@ -40,6 +40,8 @@
   "dependencies": {
     "babel-runtime": "^6.9.2",
     "react": "^15.2.1",
-    "react-dom": "^15.2.1"
+    "react-dom": "^15.2.1",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2"
   }
 }
