@@ -1,11 +1,9 @@
 /* @flow */
 
-import { createStore } from 'redux';
-import rootReducer from '../reducers';
-import type {State} from '../reducers';
+import config from '../config';
 
-export default function configureStore(initialState: State) {
-  const store = createStore(rootReducer, initialState);
-
-  return store;
+if (config.isProduction) {
+  module.exports = require('./configureStore.prod').default;
+} else {
+  module.exports = require('./configureStore.dev').default;
 }

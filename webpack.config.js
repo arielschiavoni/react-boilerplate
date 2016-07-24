@@ -8,7 +8,15 @@ module.exports = function(options) {
     devtool: dev ? 'inline-source-map' : 'hidden-source-map',
     entry: {
       app: "./src/main.js",
-      vendor: ['react', 'react-dom']
+      vendor: [
+        'react',
+        'react-dom',
+        'redux',
+        'react-redux',
+        'redux-devtools',
+        'redux-devtools-log-monitor',
+        'redux-devtools-dock-monitor'
+      ]
     },
     output: {
       path: path.join(__dirname, 'dist'),

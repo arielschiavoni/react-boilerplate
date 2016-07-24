@@ -2,9 +2,8 @@
 
 import React from 'react';
 import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import configureStore from './store/configureStore';
-import App from './components/App';
+import configureStore from './store/configureStore'; // eslint-disable-line
+import Root from './containers/Root'; // eslint-disable-line
 import type { State } from './reducers';
 
 const initialState: State = {
@@ -14,8 +13,6 @@ const initialState: State = {
 const store = configureStore(initialState);
 
 render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <Root store={store}/>,
   document.getElementById('root')
 );
