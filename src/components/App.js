@@ -1,6 +1,7 @@
 /* @flow */
 
 import React from 'react';
+import { StyleSheet, css } from 'aphrodite/no-important';
 import Counter from '../containers/Counter';
 
 type AppProps = {
@@ -9,9 +10,21 @@ type AppProps = {
 
 const App = ({greeting = 'Hello World!'}: AppProps) => (
   <div>
-    <h1>{greeting}</h1>
+    <h1 className={css(styles.blue, styles.hover)}>{greeting}</h1>
     <Counter />
   </div>
 );
 
 export default App;
+
+const styles = StyleSheet.create({
+  blue: {
+    color: 'blue'
+  },
+
+  hover: {
+    ':hover': {
+      color: 'red'
+    }
+  }
+});
