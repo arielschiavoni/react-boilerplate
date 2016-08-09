@@ -9,6 +9,7 @@ module.exports = function(options) {
     entry: {
       app: "./src/main.js",
       vendor: [
+        'aphrodite',
         'react',
         'react-dom',
         'redux',
