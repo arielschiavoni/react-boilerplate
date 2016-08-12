@@ -1,9 +1,11 @@
-/* @flow */
+// @flow
 
 import React from 'react';
 import { render } from 'react-dom';
-import configureStore from './store/configureStore'; // eslint-disable-line
-import Root from './containers/Root'; // eslint-disable-line
+import configureStore from './store/configureStore';
+import Root from './containers/Root';
+import 'styles/index.css';
+
 import type { State } from './reducers';
 
 const initialState: State = {

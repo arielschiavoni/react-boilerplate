@@ -1,16 +1,16 @@
-/* @flow */
+// @flow
 
 import React from 'react';
 import { Provider } from 'react-redux';
 import App from '../components/App';
 import DevTools from './DevTools';
+import type {Store} from 'redux';
 
-type RootProps = {
-  // @TODO: See if it is possible to use `Store` type defined in flow-typed/npm/redux_v3.x.x.js
-  store: Object
+type Props = {
+  store: Store
 };
 
-const Root = ({ store }: RootProps) => (
+const Root = ({ store }: Props) => (
   <Provider store={store}>
     <div>
       <App />

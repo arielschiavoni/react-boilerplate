@@ -1,20 +1,7 @@
-const INCREMENT = 'INCREMENT';
-const DECREMENT = 'DECREMENT';
+// @flow
+export * from './counter';
 
-export type CounterAction = IncrementAction | DecrementAction;
-
-type IncrementAction = {
-  type: 'INCREMENT'
-};
-
-type DecrementAction = {
-  type: 'DECREMENT'
-};
-
-export const increment = () => ({
-  type: INCREMENT
-});
-
-export const decrement = () => ({
-  type: DECREMENT
-});
+import type {Action as CounterAction} from './counter';
+// here we could create a union type with different action coming from different modules
+// export type Action = CounterAction | OtherAction | YetAnotherAction;
+export type Action = CounterAction;

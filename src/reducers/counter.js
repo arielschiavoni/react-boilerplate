@@ -1,14 +1,16 @@
-/* @flow */
+// @flow
 
-import type {CounterAction} from '../actions';
+import { INCREMENT, DECREMENT } from '../actions';
 
-export type CounterState = number;
+import type {Action} from '../actions/counter';
 
-export default function counterReducer(state: CounterState = 0, action: CounterAction): CounterState {
+export type State = number;
+
+export default function counterReducer(state: State = 0, action: Action): State {
   switch (action.type) {
-    case 'INCREMENT':
+    case INCREMENT:
       return state + 1;
-    case 'DECREMENT':
+    case DECREMENT:
       return state - 1;
     default:
       return state;

@@ -1,9 +1,9 @@
-/* @flow */
+// @flow
 
 import { combineReducers } from 'redux';
 import counter from './counter';
 
-import type {CounterState} from './counter';
+import type {State as CounterState} from './counter';
 
 export type State = {
   counter: CounterState

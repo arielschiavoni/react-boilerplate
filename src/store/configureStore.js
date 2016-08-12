@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 
 import config from '../config';
 

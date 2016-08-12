@@ -1,3 +1,5 @@
+// @flow
+
 import {jsdom} from 'jsdom';
 
 const exposedProperties = ['window', 'navigator', 'document'];

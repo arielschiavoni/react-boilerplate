@@ -1,14 +1,14 @@
-/* @flow */
+// @flow
 
 import React from 'react';
 
-type CounterProps = {
+export type Props = {
   value: number,
-  onIncrement: Function,
-  onDecrement: Function
+  onIncrement: () => void,
+  onDecrement: () => void
 };
 
-const Counter = ({ value, onIncrement, onDecrement }: CounterProps) => (
+const Counter = ({ value, onIncrement, onDecrement }: Props) => (
   <div>
     {value}
     <button onClick={onIncrement}>
