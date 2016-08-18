@@ -26,10 +26,7 @@ module.exports = function(options) {
         'react',
         'react-dom',
         'redux',
-        'react-redux',
-        'redux-devtools',
-        'redux-devtools-log-monitor',
-        'redux-devtools-dock-monitor'
+        'react-redux'
       ]
     },
     output: {
@@ -64,9 +61,9 @@ module.exports = function(options) {
       ];
     },
     plugins: [
+      new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'static/js/vendor.[chunkhash:8].js'}),
       new CleanWebpackPlugin(['build'], { verbose: true }),
       extractCSS,
-      new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'static/js/vendor.[chunkhash:8].js'}),
       new HtmlWebpackPlugin({
         template: 'index.html',
         inject: 'body',
@@ -74,7 +71,7 @@ module.exports = function(options) {
       }),
       new CopyWebpackPlugin([
         {from: './favicon.ico', to: 'favicon.ico'},
-      ]),
+      ])
     ],
     devServer: {
       contentBase: './src',

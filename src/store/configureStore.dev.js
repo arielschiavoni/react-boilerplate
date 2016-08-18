@@ -6,8 +6,8 @@ import { persistState } from 'redux-devtools';
 import rootReducer from '../reducers';
 import DevTools from '../containers/DevTools';
 
-import type {Store} from 'redux';
-import type {State} from '../reducers';
+import type { Store } from 'redux';
+import type { State } from '../reducers';
 
 // @TODO: We could create a Store type based on our State and Actions but `redux` flow type definition still do not
 // support it. See https://github.com/reactjs/redux/pull/1887

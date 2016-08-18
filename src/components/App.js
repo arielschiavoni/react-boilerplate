@@ -23,7 +23,6 @@ const App = ({title = 'Simple counter React App!'}: Props) => (
 
 export default App;
 
-
 const spin = {
   'from': {
     transform: 'rotate(0deg)'

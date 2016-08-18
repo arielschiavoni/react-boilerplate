@@ -3,7 +3,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import App from '../components/App';
-import type {Store} from 'redux';
+import type { Store } from 'redux';
 
 type Props = {
   store: Store
