@@ -7,10 +7,15 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const extractCSS = new ExtractTextPlugin('static/css/app.[chunkhash:8].css');
 
+const appSrc = path.join(__dirname, 'src');
+const appBuild = path.join(__dirname, 'build');
+
 module.exports = function(options) {
   const {dev} = options;
 
   return {
+    // Don't attempt to continue if there are any errors.
+    bail: true,
     resolve: {
       modules: [
         path.resolve('./src'), // so we can just do `import reducers from 'reducers'` for example
@@ -30,15 +35,21 @@ module.exports = function(options) {
       ]
     },
     output: {
-      path: path.join(__dirname, 'build'),
+      path: appBuild,
       filename: 'static/js/app.[chunkhash:8].js',
       publicPath: '/'
     },
     module: {
+      preLoaders: [{
+        test: /\.js$/,
+        loader: 'eslint',
+        include: appSrc,
+        exclude: /node_modules/
+      }],
       loaders: [{
         test: /\.js$/,
         loader: 'babel',
-        include: path.join(__dirname, 'src'),
+        include: appSrc,
         exclude: /node_modules/
       }, {
         test:   /\.css$/,
@@ -50,8 +61,7 @@ module.exports = function(options) {
         test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2|mp4|webm)(\?.*)?$/,
         loader: 'file',
         query: {
-          name: 'static/media/[name].[hash:8].[ext]',
-          context: './'
+          name: 'static/media/[name].[hash:8].[ext]'
         }
       }]
     },

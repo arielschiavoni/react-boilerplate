@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "description": "Boilerplate to develop Webapps based on React",
   "scripts": {
-    "start": "BABEL_ENV=dev webpack-dev-server --env.dev",
+    "start": "BABEL_ENV=dev node server.js",
     "pretest": "npm run lint && npm run typecheck",
-    "lint": "eslint src",
+    "lint": "eslint src test",
     "typecheck": "flow",
     "test": "BABEL_ENV=test mocha --compilers js:babel-register --require test/setup.js test/**/*.spec.js",
     "build": "BABEL_ENV=dev webpack --progress -p --env.prod"
@@ -30,6 +30,7 @@
     "css-loader": "^0.23.1",
     "enzyme": "^2.4.1",
     "eslint": "^3.1.1",
+    "eslint-loader": "^1.5.0",
     "eslint-plugin-react": "^5.2.2",
     "extract-text-webpack-plugin": "^2.0.0-beta.3",
     "file-loader": "^0.9.0",
@@ -47,6 +48,7 @@
     "redux-logger": "^2.6.1",
     "sinon": "^1.17.4",
     "webpack": "^2.1.0-beta.21",
+    "webpack-dashboard": "^0.1.1",
     "webpack-dev-server": "^2.1.0-beta.0"
   },
   "dependencies": {
