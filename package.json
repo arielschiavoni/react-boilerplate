@@ -8,7 +8,7 @@
     "lint": "eslint src test",
     "typecheck": "flow",
     "test": "BABEL_ENV=test mocha --compilers js:babel-register --require test/setup.js test/**/*.spec.js",
-    "build": "BABEL_ENV=dev webpack --progress -p --env.prod"
+    "build": "BABEL_ENV=dev webpack --progress --env.prod"
   },
   "author": "Ariel Schiavoni",
   "devDependencies": {

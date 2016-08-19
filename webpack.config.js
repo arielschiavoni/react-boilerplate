@@ -9,20 +9,20 @@ const extractCSS = new ExtractTextPlugin('static/css/app.[chunkhash:8].css');
 
 const appSrc = path.join(__dirname, 'src');
 const appBuild = path.join(__dirname, 'build');
+const entryPoint = `${appSrc}/index.js`;
 
 module.exports = function(options) {
   const {dev} = options;
 
-  return {
+  const commonConfig = {
     bail: true,
     resolve: {
       modules: [
         'node_modules'
       ]
     },
-    devtool: dev ? 'inline-source-map' : 'hidden-source-map',
     entry: {
-      app: "./src/index.js",
+      app: entryPoint,
       vendor: [
         'aphrodite',
         'react',
@@ -79,12 +79,32 @@ module.exports = function(options) {
       new CopyWebpackPlugin([
         {from: './favicon.ico', to: 'favicon.ico'},
       ])
-    ],
-    devServer: {
-      contentBase: './src',
-      open: true,
-      historyApiFallback: true,
-      progress: true
-    }
+    ]
   };
+
+  const config = commonConfig;
+
+  if (dev) {
+    config.devtool = 'inline-source-map';
+  } else {
+    const extraPlugins = [
+      new webpack.LoaderOptionsPlugin({ minimize: true, debug: false }),
+      new webpack.DefinePlugin({
+        'process.env': { NODE_ENV: JSON.stringify('production') }
+      }),
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false
+        },
+        output: {
+          comments: false
+        },
+        sourceMap: false
+      })
+    ];
+
+    config.plugins = [...config.plugins, ...extraPlugins];
+  }
+
+  return config;
 };
