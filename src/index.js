@@ -4,7 +4,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import configureStore from './store/configureStore';
 import Root from './containers/Root';
-import 'styles/index.css';
+import '../static/styles/index.css';
 
 import type { State } from './reducers';
 

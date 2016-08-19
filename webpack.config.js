@@ -14,12 +14,9 @@ module.exports = function(options) {
   const {dev} = options;
 
   return {
-    // Don't attempt to continue if there are any errors.
     bail: true,
     resolve: {
       modules: [
-        path.resolve('./src'), // so we can just do `import reducers from 'reducers'` for example
-        path.resolve('./static'),
         'node_modules'
       ]
     },

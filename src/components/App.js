@@ -3,7 +3,7 @@
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
 import Counter from '../containers/Counter';
-import logo from 'images/logo.svg';
+import logo from '../../static/images/logo.svg';
 
 type Props = {
   title?: string
