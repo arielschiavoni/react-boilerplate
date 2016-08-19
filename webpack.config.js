@@ -85,12 +85,6 @@ module.exports = function(options) {
       open: true,
       historyApiFallback: true,
       progress: true
-    },
-    // for enzyme testing
-    externals: {
-      'react/addons': true,
-      'react/lib/ExecutionEnvironment': true,
-      'react/lib/ReactContext': true
     }
   };
 };
