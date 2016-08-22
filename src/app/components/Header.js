@@ -2,26 +2,20 @@
 
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
-import Counter from '../containers/Counter';
-import logo from '../../static/images/logo.svg';
 
 type Props = {
-  title?: string
+  title: string,
+  logo: string
 };
 
-const App = ({title = 'Simple counter React App!'}: Props) => (
+const Header = ({title, logo}: Props) => (
   <div className={css(styles.root)}>
-    <div className={css(styles.header)}>
-      <img src={logo} alt="logo" className={css(styles.logo)}/>
-      <h1 className={css(styles.title)}>{title}</h1>
-    </div>
-    <div className={css(styles.counter)}>
-      <Counter />
-    </div>
+    <img src={logo} alt="logo" className={css(styles.logo)}/>
+    <h1 className={css(styles.title)}>{title}</h1>
   </div>
 );
 
-export default App;
+export default Header;
 
 const spin = {
   'from': {
@@ -34,12 +28,9 @@ const spin = {
 
 const styles = StyleSheet.create({
   root: {
-    textAlign: 'center'
-  },
-  header: {
+    textAlign: 'center',
     backgroundColor: '#222',
-    height: 150,
-    padding: 20,
+    height: 120
   },
   title: {
     color: 'white',
@@ -52,8 +43,5 @@ const styles = StyleSheet.create({
     animationName: spin,
     animationDuration: '2s',
     animationIterationCount: 'infinite',
-  },
-  counter: {
-    padding: 20
   }
 });

@@ -1,7 +1,10 @@
 {
   "env": {
     "dev": {
-       "presets": ["es2015-webpack", "react"],
+       "presets": [
+         ["es2015", { "modules": false }],
+         "react"
+       ],
        "plugins": [
          "transform-object-rest-spread",
          "transform-class-properties",

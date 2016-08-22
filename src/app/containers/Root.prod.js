@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { Provider } from 'react-redux';
-import App from '../components/App';
-import DevTools from './DevTools';
+import { Router, browserHistory } from 'react-router';
+import routes from '../routes';
 import type { Store } from 'redux';
 
 type Props = {
@@ -12,10 +12,7 @@ type Props = {
 
 const Root = ({ store }: Props) => (
   <Provider store={store}>
-    <div>
-      <App />
-      <DevTools />
-    </div>
+    <Router routes={routes} history={browserHistory} />
   </Provider>
 );
 
