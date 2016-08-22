@@ -15,12 +15,7 @@ type Props = {
 const App = ({title = 'Simple counter React App!', children}: Props) => (
   <div>
     <Header title={title} logo={logo} />
-    <NavBar
-      items={[
-        {name: 'Home', url: '/'},
-        {name: 'About Us', url: '/about'},
-        {name: 'Counter', url: '/counter'}
-      ]} />
+    <NavBar />
     <div className={css(styles.page)}>
       {children}
     </div>

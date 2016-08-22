@@ -1,21 +1,14 @@
 // @flow
 
 import React from 'react';
-import { Link } from 'react-router';
 import { StyleSheet, css } from 'aphrodite';
+import NavLink from './NavLink';
 
-type Props = {
-  items: Array<{
-    url: string,
-    name: string
-  }>
-};
-
-const NavBar = ({items}: Props) => (
+const NavBar = () => (
   <div className={css(styles.root)}>
-    {items.map(({url, name}, i) =>
-      <Link key={i} to={url} className={css(styles.item)}>{name}</Link>
-    )}
+    <NavLink to="/" index={true}>Home</NavLink>
+    <NavLink to="about">About Us</NavLink>
+    <NavLink to="counter">Counter</NavLink>
   </div>
 );
 
@@ -25,8 +18,5 @@ const styles = StyleSheet.create({
   root: {
     display: 'flex',
     paddingTop: 20
-  },
-  item: {
-    marginLeft: 20
   }
 });
