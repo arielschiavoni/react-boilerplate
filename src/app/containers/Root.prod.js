@@ -2,17 +2,18 @@
 
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Router, browserHistory } from 'react-router';
+import { Router } from 'react-router';
 import routes from '../routes';
 import type { Store } from 'redux';
 
 type Props = {
-  store: Store
+  store: Store,
+  history: Object
 };
 
-const Root = ({ store }: Props) => (
+const Root = ({ store, history }: Props) => (
   <Provider store={store}>
-    <Router routes={routes} history={browserHistory} />
+    <Router routes={routes} history={history} />
   </Provider>
 );
 
