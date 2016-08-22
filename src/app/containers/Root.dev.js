@@ -18,7 +18,7 @@ const Root = ({ store, history }: Props) => (
     <Provider store={store}>
       <Router routes={routes} history={history} />
     </Provider>
-    <DevTools store={store} />
+    { !window.devToolsExtension ? <DevTools store={store}/> : null }
   </div>
 );
 

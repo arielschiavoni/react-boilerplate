@@ -2,7 +2,6 @@
 
 import { createStore, applyMiddleware, compose } from 'redux';
 import createLogger from 'redux-logger';
-import { persistState } from 'redux-devtools';
 import rootReducer from '../reducers';
 import DevTools from '../containers/DevTools';
 
@@ -19,19 +18,11 @@ import type { State } from '../reducers';
 
 const logger = createLogger();
 
-const getDebugSessionKey = () => {
-  // By default we try to read the key from ?debug_session=<key> in the address bar
-  const matches = process.browser && window.location.href.match(/[?&]debug_session=([^&#]+)\b/);
-  return (matches && matches.length > 0) ? matches[1] : null;
-};
-
 const enhancer = compose(
   // Middleware you want to use in development:
   applyMiddleware(logger),
   // Required! Enable Redux DevTools with the monitors you chose
-  DevTools.instrument(),
-  // Optional. Lets you write ?debug_session=<key> in address bar to persist debug sessions
-  persistState(getDebugSessionKey())
+  window.devToolsExtension ? window.devToolsExtension() : DevTools.instrument()
 );
 
 const configureStore = (initialState: State): Store => {
