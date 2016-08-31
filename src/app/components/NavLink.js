@@ -3,6 +3,7 @@
 import React from 'react';
 import { Link, IndexLink } from 'react-router';
 import { StyleSheet, css } from 'aphrodite';
+import { colors } from '../styles';
 
 type Props = {
   index?: bool
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
     textDecoration: 'none'
   },
   activeLink: {
-    color: '#3B9167',
+    color: colors.textSecondary,
     textDecoration: 'underline'
   }
 });
