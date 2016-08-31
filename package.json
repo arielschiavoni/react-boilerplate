@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "description": "Boilerplate to develop Webapps based on React",
   "scripts": {
-    "start": "BABEL_ENV=dev node src/server",
-    "dev": "BABEL_ENV=dev webpack-dashboard -- node src/server",
+    "start": "NODE_ENV=production node src/server",
+    "dev": "NODE_ENV=development BABEL_ENV=development webpack-dashboard -- node src/server",
     "pretest": "npm run lint && npm run typecheck",
     "lint": "eslint src test",
     "typecheck": "flow",
     "test": "BABEL_ENV=test mocha --compilers js:babel-register --require test/setup.js test/**/*.spec.js",
-    "build": "BABEL_ENV=dev webpack --progress --config ./webpack.config.prod.js"
+    "build": "BABEL_ENV=development webpack --progress --config ./webpack.config.prod.js"
   },
   "author": "Ariel Schiavoni",
   "devDependencies": {
@@ -52,6 +52,7 @@
   },
   "dependencies": {
     "aphrodite": "^0.5.0",
+    "express": "^4.14.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-redux": "^4.4.5",

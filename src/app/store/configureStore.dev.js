@@ -3,7 +3,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import createLogger from 'redux-logger';
 import rootReducer from '../reducers';
-import DevTools from '../containers/DevTools';
 
 import type { Store } from 'redux';
 import type { State } from '../reducers';
@@ -21,8 +20,8 @@ const logger = createLogger();
 const enhancer = compose(
   // Middleware you want to use in development:
   applyMiddleware(logger),
-  // Required! Enable Redux DevTools with the monitors you chose
-  window.devToolsExtension ? window.devToolsExtension() : DevTools.instrument()
+  // Enable devToolsExtension otherwhise do nothing (return identity function)
+  window.devToolsExtension ? window.devToolsExtension() : a => a
 );
 
 const configureStore = (initialState: State): Store => {

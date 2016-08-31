@@ -1,6 +1,6 @@
 {
   "env": {
-    "dev": {
+    "development": {
        "presets": [
          ["es2015", { "modules": false }],
          "react"
